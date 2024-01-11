@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jbedu.mybatis.dao.MemberDao">
+	<insert id="joinDao">
+		INSERT INTO membertbl(mid, mpw, mname, memail) VALUES(#{param1},#{param2},#{param3},#{param4})
+	</insert>
+	
+	<select id="checkIdDao" resultType="com.jbedu.mybatis.dto.MemberDto">
+		SELECT * FROM membertbl WHERE mid=#{param1}
+	</select>
+	
+	<select id="checkIdPwDao" resultType="int">
+		SELECT count(*) FROM membertbl WHERE mid=#{param1} AND mpw=#{param2}
+	</select>
+	
+	
+</mapper>    
