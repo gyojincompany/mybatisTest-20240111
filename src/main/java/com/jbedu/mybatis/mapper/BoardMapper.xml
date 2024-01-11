@@ -28,7 +28,9 @@
 		SELECT * FROM freeboard WHERE fbtitle LIKE '%'||#{param1}||'%' OR fbcontent LIKE '%'||#{param1}||'%'
 	</select>
 	
-	
+	<delete id="deleteDao">
+		DELETE FROM freeboard WHERE fbnum=#{param1}
+	</delete>
 	
 	
 	

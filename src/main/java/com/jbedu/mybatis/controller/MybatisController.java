@@ -81,5 +81,14 @@ public class MybatisController {
 		
 		return "list";
 	}
+	
+	@RequestMapping(value = "/delete")
+	public String delete(HttpServletRequest request, Model model) {
+		
+		MybatisDao dao = sqlSession.getMapper(MybatisDao.class);
+		dao.deleteDao(request.getParameter("fbnum"));
+		
+		return "redirect:list";
+	}
 
 }
