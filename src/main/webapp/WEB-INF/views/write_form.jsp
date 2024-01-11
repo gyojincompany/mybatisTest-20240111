@@ -17,7 +17,7 @@
 		</tr>
 		<tr>
 			<td>이 름</td>
-			<td><input type="text" name="fbname" size="60" value="${MemberDto.mname }"></td>
+			<td><input type="text" name="fbname" size="60" value="${memberDto.mname }"></td>
 		</tr>
 		<tr>
 			<td>내 용</td>
