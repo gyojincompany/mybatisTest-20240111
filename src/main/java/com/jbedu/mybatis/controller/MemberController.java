@@ -72,6 +72,14 @@ public class MemberController {
 		return "loginOk";
 	}
 	
+	@RequestMapping(value = "/logout")
+	public String logout(HttpSession session) {
+		
+		session.invalidate();//모든 세션 삭제->로그아웃
+		
+		return "login";		
+	}
+	
 	
 	
 	

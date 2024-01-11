@@ -3,6 +3,7 @@ package com.jbedu.mybatis.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,18 @@ public class MybatisController {
 	}
 	
 	@RequestMapping(value = "/write_form")
-	public String write_form() {
-		return "write_form";
+	public String write_form(HttpSession session) {
+		
+		String sid = (String) session.getAttribute("sessionId");
+		
+		if(sid == null) { //로그인 상태여부 확인->참이면 로그인하지 않은 상태
+			return "redirect:login";
+		} else { //로그인된 상태		
+			
+			
+			
+			return "write_form";
+		}	
 	}
 	
 	@RequestMapping(value = "/write")
