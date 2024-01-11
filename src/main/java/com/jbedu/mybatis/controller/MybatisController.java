@@ -45,5 +45,41 @@ public class MybatisController {
 		
 		return "redirect:list";
 	}
+	
+	@RequestMapping(value = "/content_view")
+	public String content_view(HttpServletRequest request, Model model) {
+		
+		MybatisDao dao = sqlSession.getMapper(MybatisDao.class);//dao 객체 분리 생성
+		model.addAttribute("fboardDto", dao.contentDao(request.getParameter("fbnum")));
+		
+		return "content_view";
+	}
+	
+	@RequestMapping(value = "/modify_form" )
+	public String modify_form(HttpServletRequest request, Model model) {
+		
+		MybatisDao dao = sqlSession.getMapper(MybatisDao.class);//dao 객체 분리 생성
+		model.addAttribute("fboardDto", dao.contentDao(request.getParameter("fbnum")));
+		
+		return "modify_form";
+	}
+	
+	@RequestMapping(value = "/modify")
+	public String modify(HttpServletRequest request, Model model) {
+		
+		MybatisDao dao = sqlSession.getMapper(MybatisDao.class);
+		dao.modifyDao(request.getParameter("fbtitle"), request.getParameter("fbname"), request.getParameter("fbcontent"), request.getParameter("fbnum"));
+		
+		return "redirect:list";
+	}
+	
+	@RequestMapping(value = "/search")
+	public String search(HttpServletRequest request, Model model) {
+		
+		MybatisDao dao = sqlSession.getMapper(MybatisDao.class);//dao 객체 분리 생성
+		model.addAttribute("fboardDtos", dao.searchDao(request.getParameter("searchKey")));
+		
+		return "list";
+	}
 
 }

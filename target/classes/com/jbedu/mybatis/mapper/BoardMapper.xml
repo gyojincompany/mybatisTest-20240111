@@ -14,4 +14,23 @@
 			freeboard(fbnum, fbname, fbtitle, fbcontent, fbhit) 
 				VALUES(freeboard_seq.nextval, #{param1}, #{param2}, #{param3}, 0)
 	</insert>
+	
+	<select id="contentDao" resultType="com.jbedu.mybatis.dto.MybatisDto">
+		SELECT * FROM freeboard WHERE fbnum = #{param1}
+	</select>
+	
+	<update id="modifyDao">
+		UPDATE freeboard SET fbtitle=#{param1}, fbname=#{param2}, fbcontent=#{param3} 
+			WHERE fbnum=#{param4}
+	</update>
+	
+	<select id="searchDao" resultType="com.jbedu.mybatis.dto.MybatisDto">
+		SELECT * FROM freeboard WHERE fbtitle LIKE '%'||#{param1}||'%' OR fbcontent LIKE '%'||#{param1}||'%'
+	</select>
+	
+	
+	
+	
+	
+	
 </mapper>    
