@@ -32,7 +32,9 @@
 		DELETE FROM freeboard WHERE fbnum=#{param1}
 	</delete>
 	
-	
+	<update id="uphitDao">
+		UPDATE freeboard SET fbhit=fbhit+1 WHERE fbnum=#{param1}
+	</update>
 	
 	
 </mapper>    

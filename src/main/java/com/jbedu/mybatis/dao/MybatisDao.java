@@ -12,4 +12,5 @@ public interface MybatisDao {
 	public void modifyDao(String fbtitle, String fbname, String fbcontent, String fbnum); //게시판 글 수정하기
 	public ArrayList<MybatisDto> searchDao(String searchKey); //제목 또는 내용에 특정단어 포함 결과 검색
 	public void deleteDao(String fbnum); //게시판 글 삭제
+	public void uphitDao(String fbnum);//게시판 글 조회수 증가
 }

@@ -63,6 +63,7 @@ public class MybatisController {
 	public String content_view(HttpServletRequest request, Model model) {
 		
 		MybatisDao dao = sqlSession.getMapper(MybatisDao.class);//dao 객체 분리 생성
+		dao.uphitDao(request.getParameter("fbnum"));//조회수 증가 함수 호출
 		model.addAttribute("fboardDto", dao.contentDao(request.getParameter("fbnum")));
 		
 		return "content_view";
